@@ -1,0 +1,5 @@
+F:\Git\CourseAssignment\CourseAssignment\obj\Debug\CourseAssignment.csprojResolveAssemblyReference.cache
+F:\Git\CourseAssignment\CourseAssignment\bin\Debug\CourseAssignment.exe
+F:\Git\CourseAssignment\CourseAssignment\bin\Debug\CourseAssignment.pdb
+F:\Git\CourseAssignment\CourseAssignment\obj\Debug\CourseAssignment.exe
+F:\Git\CourseAssignment\CourseAssignment\obj\Debug\CourseAssignment.pdb
