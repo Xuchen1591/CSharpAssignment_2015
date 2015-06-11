@@ -196,7 +196,7 @@ namespace CourseAssignment
             Console.WriteLine("my area is {0}", this.myArea());
             Console.WriteLine();
         }
-
+          
         public override Shape clone()
         {
             //return base.clone();
@@ -208,6 +208,9 @@ namespace CourseAssignment
     {
         static void Main(string[] args)
         {
+            /*
+             * class test
+             * 
             Shape elps = new Ellipse(3, 4);
             Shape ckl = new Circle(3);
             Shape rktg = new Rectangle(3, 5);
@@ -219,6 +222,119 @@ namespace CourseAssignment
             rktg.printSelfInfo();
             tri.printSelfInfo();
             skl.printSelfInfo();
+             * */
+
+            //reflection type test
+            /*
+            Shape xuchen = new Circle(3);
+            System.Type type = xuchen.GetType();
+            Console.WriteLine(type);
+            */
+
+
+            List<Shape> shapeList = new List<Shape>();
+
+            while(true)
+            {
+                Console.WriteLine("input the Shape you want, choose one from below:");
+                Console.WriteLine("1 for CIRCLE");
+                Console.WriteLine("2 for ELLIPSE");
+                Console.WriteLine("3 for RECTANGLE");
+                Console.WriteLine("4 for TRIANGLE");
+                Console.WriteLine("5 for SQUARE");
+                Console.WriteLine(">>>input '110' to exit<<<");
+                string userShape = Console.ReadLine();
+
+                switch (userShape)
+                {
+                    case "1":
+                        Console.WriteLine("please input RADIUS of your circle:");
+                        string userStringRadius = Console.ReadLine();
+                        double radius = System.Convert.ToDouble(userStringRadius);
+                        Shape userCircle = new Circle(radius);
+                        shapeList.Add(userCircle.clone());
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        break;
+
+                    case "2":
+                        Console.WriteLine("please input SEMI_MAJOR_AXIS of your circle:");
+                        string userStringMajor = Console.ReadLine();
+                        Console.WriteLine("please input SEMI_MINOR_AXIS of your circle:");
+                        string userStringMinor = Console.ReadLine();
+                        double semi_major_axis = System.Convert.ToDouble(userStringMajor);
+                        double semi_minor_axis = System.Convert.ToDouble(userStringMinor);
+                        Shape userEllipse = new Ellipse(semi_major_axis, semi_minor_axis);
+                        shapeList.Add(userEllipse.clone());
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        break;
+
+                    case "3":
+                        Console.WriteLine("please input LENGTH of your circle:");
+                        string userStringLength = Console.ReadLine();
+                        Console.WriteLine("please input WIDTH of your circle:");
+                        string userStringWidth = Console.ReadLine();
+                        double length = System.Convert.ToDouble(userStringLength);
+                        double width = System.Convert.ToDouble(userStringWidth);
+                        Shape userRectangle = new Rectangle(length, width);
+                        shapeList.Add(userRectangle.clone());
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        break;
+
+                    case "4":
+                        Console.WriteLine("please input ALTITUDE of your circle:");
+                        string userStringAltitude = Console.ReadLine();
+                        Console.WriteLine("please input LENGTH_OF_BASE of your circle:");
+                        string userStringBase = Console.ReadLine();
+                        double altitude = System.Convert.ToDouble(userStringAltitude);
+                        double lengthOfBase = System.Convert.ToDouble(userStringBase);
+                        Shape userTriangle = new Triangle(altitude, lengthOfBase);
+                        shapeList.Add(userTriangle.clone());
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        break;
+
+                    case "5":
+                        Console.WriteLine("please input EDGE of your circle:");
+                        string userStringEdge = Console.ReadLine();
+                        double edge = System.Convert.ToDouble(userStringEdge);
+                        Shape userSquare = new Square(edge);
+                        shapeList.Add(userSquare.clone());
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        break;
+
+                    case "110":
+                        goto outofWhile;
+
+                    default:
+                        Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+                        Console.WriteLine("    Remind: must input shape from shape list!    ");
+                        Console.WriteLine(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        break;
+
+                }
+            }
+
+        outofWhile:
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine(">>>All shape you added self description:");
+            foreach (Shape s in shapeList)
+            {
+                //Console.WriteLine(s.GetType());
+                if(s.GetType() == typeof(Circle)
+                    || s.GetType() == typeof(Ellipse)
+                    || s.GetType() == typeof(Rectangle)
+                    || s.GetType() == typeof(Triangle)
+                    || s.GetType() == typeof(Square))
+                    s.printSelfInfo();
+            }
         }
     }
 }
