@@ -172,7 +172,7 @@ namespace CourseAssignment
         }
     }
 
-    public class Square : Shape
+    public class Square : Rectangle
     {
         private double edge;
         private new string type = "Square";
